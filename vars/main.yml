@@ -1,0 +1,19 @@
+# vars/main.yml
+---
+postgresql_listen_addresses: "*"
+postgresql_max_connections: 300
+postgresql_wal_level: "hot_standby"
+postgresql_hot_standby: "on"
+postgresql_statement_timeout: 60000
+postgresql_log_lock_waits: "on"
+postgresql_log_destination: "csvlog"
+postgresql_log_min_duration_statement: 0
+postgresql_users:
+  - name: right-hand-admin
+    pass: 5f4dcc3b5aa765d61d8327deb882cf99
+    encrypted: yes
+postgresql_databases:
+  - name: right_hand_development
+    owner: right-hand-admin
+postgresql_pg_hba_custom:
+  - {type: "host", database: "all", user: "all", address: "0.0.0.0/0", method: "md5" }

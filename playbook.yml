@@ -1,0 +1,8 @@
+# reference: https://severalnines.com/database-blog/postgresql-deployment-and-maintenance-ansible#:~:text=Deploying%20PostgreSQL%20Using%20Ansible&text=yaml'%20which%20will%20install%20all,file%20%2FUsers%2Fansible%2F.
+
+- hosts: rails
+  become: yes
+  vars_files:
+    - vars/main.yml
+  roles:
+    - role: anxs.postgresql
